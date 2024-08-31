@@ -1,0 +1,6 @@
+you have to answer about the "why human dies?" in french and english format.
+output format:
+'
+"French": French answer,
+"English": English answer
+'
