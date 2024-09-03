@@ -1,5 +1,5 @@
 - [StrOutputParser](#strOutputParser)
-
+- [Chaining](#chaining)
 
 ## strOutputParser
  **StrOutputParser**
@@ -13,7 +13,8 @@ result = model.invoke(query).StrOutputParser()
 
 ---
 
-# Chaining
+## chaining
+** Chaining **
 
 Chaining is a concept where tasks or methods are called automatically in sequence. Under the hood, it creates two components:
 
