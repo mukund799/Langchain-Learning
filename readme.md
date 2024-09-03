@@ -60,7 +60,7 @@ output_parser = RunnableLambda(lambda x: ...)
 
 ---
 
-#retriver
+## retriver
 ** RETRIVER **
 `Retriver` is nothing but an interface which help to interact with vector store. it just used for retrival purpose, not for the store.
 
