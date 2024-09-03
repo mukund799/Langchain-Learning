@@ -1,4 +1,4 @@
-- [StrOutputParser][#strOutputParser]
+- [StrOutputParser](#strOutputParser)
 
 
 ## strOutputParser
