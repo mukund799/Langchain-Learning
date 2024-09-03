@@ -81,7 +81,11 @@ retriever = db.as_retriever(
 1. ***WebPage*** :- You have to mention the URL & it's done.
     you just need to install the bs4 library
 ```python
-from bs4 import BeautifulSoup
+from langchain_community.document_loaders import WebBaseLoader, TextLoader
 loader = WebBaseLoader(web_path="https://python.langchain.com/v0.2/docs/how_to/sequence/#the-pipe-method")
 data = loader.load()
-print(data)```
+print(data)
+# for loading the textfile.
+loader = TextLoader(file_path = "")
+```
+---
