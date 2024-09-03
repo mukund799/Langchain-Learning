@@ -1,7 +1,7 @@
-1. [StrOutputParser][#StrOutputParser]
+- [StrOutputParser][#strOutputParser]
 
 
-## StrOutputParser
+## strOutputParser
  **StrOutputParser**
 
 from langchain.schema.output_parser import StrOutputParser
