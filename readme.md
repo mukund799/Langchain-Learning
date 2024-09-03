@@ -1,5 +1,7 @@
 - [StrOutputParser](#strOutputParser)
 - [Chaining](#chaining)
+- [Retriver](#retriver)
+
 
 ## strOutputParser
  **StrOutputParser**
@@ -56,10 +58,10 @@ invoke_model = RunnableLambda(lambda x: ...)
 output_parser = RunnableLambda(lambda x: ...)
 ```
 
+---
 
-
-
-# RETRIVER
+#retriver
+** RETRIVER **
 `Retriver` is nothing but an interface which help to interact with vector store. it just used for retrival purpose, not for the store.
 
 1. By default it does `similarity` search.
