@@ -51,6 +51,18 @@ invoke_model = RunnableLambda(lambda x: ...)
 output_parser = RunnableLambda(lambda x: ...)
 ```
 
----
 
-This markdown file is now correctly formatted with appropriate headings, code blocks, and explanations, making it more readable on GitHub.
+
+
+# RETRIVER
+`Retriver` is nothing but an interface which help to interact with vector store. it just used for retrival purpose, not for the store.
+
+1. By default it does `similarity` search.
+2. if we want to do search_type as `similarity_score_threshold` then it is mandatory to mention the `score_threshold` value explicitly.
+````python
+retriever = db.as_retriever(
+    search_type= "similarity_score_threshold",
+    search_kwargs = {'k':1,'score_threshold':0.7}
+)
+````
+---
