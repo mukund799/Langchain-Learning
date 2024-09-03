@@ -1,4 +1,7 @@
-**StrOutputParser**
+1. [StrOutputParser][StrOutputParser]
+
+
+[StrOutputParser]: **StrOutputParser**
 
 from langchain.schema.output_parser import StrOutputParser
 result = model.invoke(query).StrOutputParser()
