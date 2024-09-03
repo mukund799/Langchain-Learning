@@ -1,6 +1,7 @@
 - [StrOutputParser](#strOutputParser)
 - [Chaining](#chaining)
 - [Retriver](#retriver)
+- [DataLoader](#dataLoader)
 
 
 ## strOutputParser
@@ -73,3 +74,14 @@ retriever = db.as_retriever(
 )
 ````
 ---
+## dataLoader
+** DATA LOADER **
+-`langchain` provides the predefined function which will help you to read the data from any source(Ex. Webpage, Pdf, Txt file etc.)
+
+1. ***WebPage*** :- You have to mention the URL & it's done.
+    you just need to install the bs4 library
+```python
+from bs4 import BeautifulSoup
+loader = WebBaseLoader(web_path="https://python.langchain.com/v0.2/docs/how_to/sequence/#the-pipe-method")
+data = loader.load()
+print(data)```
