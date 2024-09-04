@@ -2,7 +2,7 @@
 - [Chaining](#chaining)
 - [Retriver](#retriver)
 - [DataLoader](#dataLoader)
-
+- [Splitter](#splitter)
 
 ## strOutputParser
  **StrOutputParser**
@@ -89,3 +89,26 @@ print(data)
 loader = TextLoader(file_path = "")
 ```
 ---
+
+## splitter
+**SPLITTER** :- How to split your document or text into chunks so that it will easy and correct value while retrieving.
+1. ***RecursiveCharacterTextSplitter*** :- This is the best text splitter among all. Attempts for splitting the text into natural boundries(like paragraph,sentences etc.)
+
+    ```python
+    text_splitter = RecursiveCharacterTextSplitter(
+    # Set a really small chunk size, just to show.
+    chunk_size=100,
+    chunk_overlap=20,
+    )
+    doc = text_splitter.split_documents(document)
+
+    ```
+2. ***CharacterTextSplitter*** :- This is also a type of splitter. Useful for consistent chunk size regardless of content structure.
+    ```python
+    text_splitter = CharacterTextSplitter(
+    # Set a really small chunk size, just to show.
+    chunk_size=100,
+    chunk_overlap=20,
+    )
+    doc = text_splitter.split_documents(document)
+    ```
