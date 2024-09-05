@@ -62,17 +62,35 @@ output_parser = RunnableLambda(lambda x: ...)
 ---
 
 ## retriver
-** RETRIVER **
+**RETRIVER**
 `Retriver` is nothing but an interface which help to interact with vector store. it just used for retrival purpose, not for the store.
 
-1. By default it does `similarity` search.
-2. if we want to do search_type as `similarity_score_threshold` then it is mandatory to mention the `score_threshold` value explicitly.
+1. `similarity` - By default it does `similarity` search. `similarity` search only focus to find the most relevant items without considering their similarity to each other.
+
+
+2. `similarity_score_threshold` - if we want to do search_type as `similarity_score_threshold` then it is mandatory to mention the `score_threshold` value explicitly.
+
 ````python
 retriever = db.as_retriever(
     search_type= "similarity_score_threshold",
     search_kwargs = {'k':1,'score_threshold':0.7}
 )
 ````
+
+
+3. `Maximum marginal relevance retrieval` - MmrRetriver is a class that is used to perform maximum marginal relevance retrieval.
+
+    ```python
+    retriever = rvs.max_marginal_relevance_search(
+            query=query,
+            lambda_mult=0.90,
+            k=10,
+            fetch_k=20,
+            score_threshold=0.4
+            )
+    docs = retriever.invoke("what did he  ...")
+    ```
+
 ---
 ## dataLoader
 ** DATA LOADER **
