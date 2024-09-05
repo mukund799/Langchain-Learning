@@ -70,6 +70,13 @@ output_parser = RunnableLambda(lambda x: ...)
 
 2. `similarity_score_threshold` - if we want to do search_type as `similarity_score_threshold` then it is mandatory to mention the `score_threshold` value explicitly.
 
+    a threshold value is set for the similarity score between the query and the documents. Documents with a similarity score above the threshold are considered relevant and are returned as results. This approach focuses on retrieving documents that are highly similar to the query, without considering the diversity of the results.
+    Key characteristics:
+
+    • Threshold-based: Documents are selected based on a predefined similarity score threshold.
+    • Similarity-focused: The primary goal is to retrieve documents that are highly similar to the query.
+    • No diversity consideration: The technique does not explicitly consider the diversity of the results.
+
 ````python
 retriever = db.as_retriever(
     search_type= "similarity_score_threshold",
@@ -79,6 +86,14 @@ retriever = db.as_retriever(
 
 
 3. `Maximum marginal relevance retrieval` - MmrRetriver is a class that is used to perform maximum marginal relevance retrieval.
+
+    `Diversity` In the context of Maximum Marginal Relevance (MMR), diversity refers to the degree of dissimilarity or uniqueness among the retrieved results. The goal of MMR is to maximize the diversity of the results while maintaining their relevance to the query.
+    In other words, diversity in MMR means that the selected results should:
+
+    • Cover different aspects: Represent different facets or perspectives of the topic, rather than repeating the same information.
+    • Minimize redundancy: Avoid duplicating or closely resembling each other, providing a more comprehensive view of the topic.
+    • Show varied content: Include a mix of different content types, such as images, videos, articles, or reviews, to cater to different user preferences.
+
 
     ```python
     retriever = rvs.max_marginal_relevance_search(
