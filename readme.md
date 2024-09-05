@@ -90,6 +90,10 @@ retriever = db.as_retriever(
             )
     docs = retriever.invoke("what did he  ...")
     ```
+    -lambda_mult: A float value that adjusts the trade-off between relevance and diversity. Values closer to 1 prioritize relevance, while values closer to 0 prioritize diversity.
+    -k: The number of results to retrieve.
+    -fetch_k: The number of documents to fetch from the index in each iteration.
+    -score_threshold: The minimum score required for a document to be considered relevant.
 
 ---
 ## dataLoader
