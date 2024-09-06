@@ -92,7 +92,10 @@ result = model.invoke(query).StrOutputParser()
 
 --> What it does is we don't have to extract the answer from response. this parser  will do for me and give back the content that i want.
 
+###### PromptTemplate vs ChatPromptTemplate :- Prompt templates are used to format a single string, making them suitable for simpler inputs, while chat prompt templates are used to format an array of messages, making them ideal for more complex interactions [${1}]. Here's a breakdown of where to use each:
 
+• Use prompt templates when you need to format a single string prompt, such as asking for a joke about a specific topic [${1}].
+• Use chat prompt templates when you need to format an array of messages, such as constructing a conversation with multiple messages between a user and a system [${1}].
 
 ---
 
