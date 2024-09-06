@@ -3,7 +3,40 @@
 - [Retriver](#retriver)
 - [DataLoader](#dataLoader)
 - [Splitter](#splitter)
+- [PromptTemplate](#promptTemplate)
 
+## promptTemplate
+1. `ChatPromptTemplate`
+    - **from_message** and **from_strings** both works as similar. it takes a list of tuple and return the ChatPromptTemplate.
+    - although **from_strings** is deprecated.
+
+    ```python
+
+    prompt1 = ChatPromptTemplate.from_messages(
+                [
+                    ("system","you are an assistant which will give answer of any question. you will always generate two answer."),
+                    ("human","{question}")
+                ]
+            )
+    prompt2 = ChatPromptTemplate.from_stringss(
+                [
+                    ("system","you are an assistant which will give answer of any question. you will always generate two answer."),
+                    ("human","{question}")
+                ]
+            )
+
+    ```
+
+    
+    - To convert this chatPromptTemplate, so we can pass to llm we use `invoke` or `format_message`.
+    - `invoke` will take a json or dict as input while in `format_message` we can pass n no. of string.
+    ```python
+        prompt = prompt.invoke({"question":"what is mango?"})
+        prompt = prompt.format_messages(question = "what is mango")
+    ```
+
+
+---
 ## strOutputParser
  **StrOutputParser**
 
