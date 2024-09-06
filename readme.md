@@ -6,9 +6,20 @@
 - [PromptTemplate](#promptTemplate)
 
 ## promptTemplate
-1. `ChatPromptTemplate`
+
+1. `PromptTemplate` - this Prompt template used for a language model. It's Parent class is also `BasePromptTemplate` only.
+    `PromptTemplate` inherits the `StringPromptTemplate` class and `StringPromptTemplate` class inherit the `BasePromptTemplate` class.
+    
+    ```python
+    from langchain_core.prompts import PromptTemplate
+    ```
+
+2. `ChatPromptTemplate` -  This Prompt template is used for chat models. This is the youngest child class we can say. It inherit the property of `BaseChatPromptTemplate` and  `BaseChatPromptTemplate` inherit the property of `BasePromptTemplate`. 
+    So we can say `BasePromptTemplate` is the Parent class.
+
     - **from_message** and **from_strings** both works as similar. it takes a list of tuple and return the ChatPromptTemplate.
     - although **from_strings** is deprecated.
+    - If we don't provide anything then also it will work.
 
     ```python
 
@@ -24,7 +35,13 @@
                     ("human","{question}")
                 ]
             )
-
+    
+    prompt3 = ChatPromptTemplate(
+                [
+                    ("system","you are an assistant which will give answer of any question. you will always generate two answer."),
+                    ("human","{question}")
+                ]
+            )
     ```
 
     
@@ -34,6 +51,36 @@
         prompt = prompt.invoke({"question":"what is mango?"})
         prompt = prompt.format_messages(question = "what is mango")
     ```
+
+
+    -- `Single-variable template`:
+
+        - If your prompt has only a single input variable (i.e., 1 instance of "{variable_nams}"),
+        and you invoke the template with a non-dict object, the prompt template will
+        inject the provided argument into that variable location.
+
+
+        .```python
+
+            from langchain_core.prompts import ChatPromptTemplate
+
+            template = ChatPromptTemplate([
+                ("system", "You are a helpful AI bot. Your name is Carl."),
+                ("human", "{user_input}"),
+            ])
+
+            prompt_value = template.invoke("Hello, there!")
+            # Equivalent to
+            # prompt_value = template.invoke({"user_input": "Hello, there!"})
+
+            # Output:
+            #  ChatPromptValue(
+            #     messages=[
+            #         SystemMessage(content='You are a helpful AI bot. Your name is Carl.'),
+            #         HumanMessage(content='Hello, there!'),
+            #     ]
+            # )
+        ```
 
 
 ---
