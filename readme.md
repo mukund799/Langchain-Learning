@@ -254,7 +254,8 @@ loader = TextLoader(file_path = "")
 ## agents
 
 **Tool** - we have custom tool and predefined tool.
-1. ***CustomTool*** :- ```python
+1. ***CustomTool*** :- 
+```python
 from langchain_core.tools import tool
 
 @tool
