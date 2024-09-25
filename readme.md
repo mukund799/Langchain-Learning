@@ -252,6 +252,19 @@ loader = TextLoader(file_path = "")
 
 
 ## agents
+
+**Tool** - we have custom tool and predefined tool.
+1. ***CustomTool*** :- ```python
+from langchain_core.tools import tool
+
+@tool
+def multiply(first_int: int, second_int: int) -> int:
+    """Multiply two integers together."""
+    return first_int * second_int
+
+a = multiply.invoke({"first_int": 4, "second_int": 5})
+print(a)
+```
 - The core idea of agents is to use a language model to choose a sequence of actions to take. In chains, a sequence of actions is hardcoded (in code). In agents, a language model is used as a reasoning engine to determine which actions to take and in which order.
 
 - tools or function-calling
