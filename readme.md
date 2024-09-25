@@ -55,7 +55,7 @@
     ```
 
 
-    -- `Single-variable template`:
+    - `Single-variable template`:
 
         - If your prompt has only a single input variable (i.e., 1 instance of "{variable_nams}"),
         and you invoke the template with a non-dict object, the prompt template will
