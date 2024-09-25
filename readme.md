@@ -4,6 +4,8 @@
 - [DataLoader](#dataLoader)
 - [Splitter](#splitter)
 - [PromptTemplate](#promptTemplate)
+- [Agent](#agents)
+- [Memory](#memory)
 
 ## promptTemplate
 
@@ -84,12 +86,12 @@
 
 
 
-`###### PromptTemplate vs ChatPromptTemplate` :- 
+`PromptTemplate vs ChatPromptTemplate` :- 
     Prompt templates are used to format a single string, making them suitable for simpler inputs, while chat prompt templates are used to format an array of messages, making them ideal for more complex interactions [${1}]. Here's a breakdown of where to use each:
 
     • Use prompt templates when you need to format a single string prompt, such as asking for a joke about a specific topic [${1}].
     • Use chat prompt templates when you need to format an array of messages, such as constructing a conversation with multiple messages between a user and a system [${1}].
-    
+
 ---
 ## strOutputParser
  **StrOutputParser**
@@ -143,6 +145,18 @@ format_prompt = RunnableLambda(lambda x: ...)
 invoke_model = RunnableLambda(lambda x: ...)
 output_parser = RunnableLambda(lambda x: ...)
 ```
+
+
+### All chain types in langchain
+1. `create_stuff_documents_chain` - it is used for sequential chaining. This chain takes a list of documents and formats them all into a prompt, then passes that prompt to an LLM. 
+- so when you are working with Rag Application type, when we do vector search then in response we get list of Documents as response so we can pass it directly without further breaking it.
+ for that situation this chain concept is best.
+
+
+2. `create_history_aware_retriever` :- This chain takes in conversation history and then uses that to generate a search query which is passed to the underlying retriever.
+- If there is no chat_history, then the input is just passed directly to the retriever. If there is chat_history, then the prompt and LLM will be used to generate a search query. That search query is then passed to the retriever.
+
+3. `create_retrieval_chain` :- This chain takes in a user inquiry, which is then passed to the retriever to fetch relevant documents. Those documents (and original inputs) are then passed to an LLM to generate a response
 
 ---
 
@@ -234,3 +248,30 @@ loader = TextLoader(file_path = "")
     )
     doc = text_splitter.split_documents(document)
     ```
+
+
+
+## agents
+- The core idea of agents is to use a language model to choose a sequence of actions to take. In chains, a sequence of actions is hardcoded (in code). In agents, a language model is used as a reasoning engine to determine which actions to take and in which order.
+
+- tools or function-calling
+
+```python
+from langchain.agents import AgentExecuter, create_react_agent
+from langchain_cors.tools import Tool
+```
+
+---
+
+
+
+
+## memory
+
+*`RunnableWithMessageHistory`*
+    - Runnable that manages chat message history for another Runnable.
+
+    - A chat message history is a sequence of messages that represent a conversation.
+
+    - RunnableWithMessageHistory wraps another Runnable and manages the chat message history for it; it is responsible for reading and updating the chat message history.
+
