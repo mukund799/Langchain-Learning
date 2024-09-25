@@ -62,7 +62,7 @@
         inject the provided argument into that variable location.
 
 
-        .```python
+        ```python
 
             from langchain_core.prompts import ChatPromptTemplate
 
@@ -73,15 +73,15 @@
 
             prompt_value = template.invoke("Hello, there!")
             # Equivalent to
-            # prompt_value = template.invoke({"user_input": "Hello, there!"})
+            prompt_value = template.invoke({"user_input": "Hello, there!"})
 
             # Output:
-            #  ChatPromptValue(
-            #     messages=[
-            #         SystemMessage(content='You are a helpful AI bot. Your name is Carl.'),
-            #         HumanMessage(content='Hello, there!'),
-            #     ]
-            # )
+              ChatPromptValue(
+                 messages=[
+                     SystemMessage(content='You are a helpful AI bot. Your name is Carl.'),
+                     HumanMessage(content='Hello, there!'),
+                ]
+             )
         ```
 
 
