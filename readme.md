@@ -266,6 +266,7 @@ def multiply(first_int: int, second_int: int) -> int:
 
 **Agents** - The core idea of agents is to use a language model to choose a sequence of actions to take. In chains, a sequence of actions is hardcoded (in code). In agents, a language model is used as a reasoning engine to determine which actions to take and in which order.
 Agent help us with all that situation.
+[Types Of Agent](https://python.langchain.com/v0.1/docs/modules/agents/agent_types/)
 
 1. **create_tool_calling_agent** - The Basic agent. Which will identify your tools and passed to model.
 
@@ -275,6 +276,10 @@ from langchain_core.prompts import ChatPromptTemplate
 from tools import tools
 from llm import load_llm
 llm = load_llm()
+
+# The agent prompt must have an agent_scratchpad key that is a MessagesPlaceholder.
+# Intermediate agent actions and tool output messages will be passed in here.
+
 prompt = ChatPromptTemplate.from_messages(
     [
         ("system", "You can only respond using the provided tools. if you can't find answer using the tools, then only response back to user that 'Sorry, I cannot answer that.'\n"),
