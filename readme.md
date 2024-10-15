@@ -266,7 +266,7 @@ def multiply(first_int: int, second_int: int) -> int:
 
 **Agents** - The core idea of agents is to use a language model to choose a sequence of actions to take. In chains, a sequence of actions is hardcoded (in code). In agents, a language model is used as a reasoning engine to determine which actions to take and in which order.
 Agent help us with all that situation.
-[Types Of Agent](https://python.langchain.com/v0.1/docs/modules/agents/agent_types/)
+-[Types Of Agent](https://python.langchain.com/v0.1/docs/modules/agents/agent_types/)
 
 1. **create_tool_calling_agent** - The Basic agent. Which will identify your tools and passed to model.
 
@@ -307,9 +307,28 @@ print(res)
 ## memory
 
 *`RunnableWithMessageHistory`*
+    ```python
+    from langchain_core.chat_history import (
+        BaseChatMessageHistory, InMemoryChatMessageHistory
+    )
+    from langchain_core.runnables.history import RunnableWithMessageHistory
+    ```
+
     - Runnable that manages chat message history for another Runnable.
 
     - A chat message history is a sequence of messages that represent a conversation.
 
     - RunnableWithMessageHistory wraps another Runnable and manages the chat message history for it; it is responsible for reading and updating the chat message history.
 
+    - They accept a config with a key ("session_id" by default) that specifies what conversation history to fetch and prepend to the input, and append the output to the same conversation history.
+
+    
+
+*`BaseChatMessageHistory`* 
+    - BaseChatMessageHistory that handles injecting chat history into inputs and updating it after each invocation.
+    - What is BaseChatMessageHistory?
+
+        BaseChatMessageHistory is a class that can load and save message objects. It will be called by RunnableWithMessageHistory to do exactly that. These classes are usually initialized with a session id.
+
+
+*`InMemoryChatMessageHistory`* 

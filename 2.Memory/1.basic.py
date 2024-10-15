@@ -9,7 +9,7 @@ memory = ConversationBufferMemory(memory_key="chat_history")
 
 from langchain.chains import ConversationChain
 conversation = ConversationChain(
-    llm=llm, memory=ConversationBufferWindowMemory(k = 2)
+    llm=llm, memory=ConversationBufferWindowMemory(k=2)
 )
 
 while True:

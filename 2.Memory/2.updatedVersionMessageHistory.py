@@ -31,17 +31,17 @@ chain = prompt | llm
 
 with_message_history = RunnableWithMessageHistory(chain, get_session_history)
 
-# while True:
-#     user_input = input("You: ")
-#     if user_input == "bye":
-#         print("it done")
-#         break
-#     response = with_message_history.invoke(
-#         {"question":user_input},
-#         config=config,
-#     )
+while True:
+    user_input = input("You: ")
+    if user_input == "bye":
+        print("it done")
+        break
+    response = with_message_history.invoke(
+        {"question":user_input},
+        config=config,
+    )
 
-#     print(response.content)
+    print(response.content)
 
 
 

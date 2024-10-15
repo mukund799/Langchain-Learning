@@ -23,5 +23,3 @@ def greeting() -> str:
     return "Hii, Thank you. How can i help you! "
 
 tools = [multiply,add,greeting]
-a = multiply.invoke({"first_int": 4, "second_int": 5})
-print(a)
