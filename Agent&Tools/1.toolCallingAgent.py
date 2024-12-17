@@ -13,7 +13,7 @@ from langchain.agents import tool
 @tool
 def summation(a:int, b:int, c:int) -> int:
     """ return the sum of three numbers"""
-    return a + b + c
+    return a + b + c 
 
 
 @tool
